@@ -1,0 +1,29 @@
+﻿# global
+.DS_Store
+*.log
+*.tmp
+*.swp
+
+# IDE
+.vscode/
+.idea/
+*.iml
+target/
+out/
+
+# Java/Maven
+**/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Node
+node_modules/
+dist/
+build/
+
+# Env & secrets
+.env
+.env.*
+*.local
+
+# Docker
+docker/data/
