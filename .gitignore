@@ -25,5 +25,4 @@ build/
 .env.*
 *.local
 
-# Docker
-docker/data/
+
