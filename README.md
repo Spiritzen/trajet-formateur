@@ -14,3 +14,9 @@ Plateforme pro pour gérer les formateurs, leurs affectations et les trajets opt
 ## Qualité & Sécurité
 - Conventional Commits, PR review obligatoire.
 - Secrets en variables d’environnement (jamais dans Git).
+
+### Backend (profil dev)
+1) `docker compose -f docker/docker-compose.yml up -d`
+2) Lancer l’app avec le profil `dev`  
+   - STS → Run Config → Profile = `dev`
+3) Health: `http://localhost:8080/actuator/health` → UP
