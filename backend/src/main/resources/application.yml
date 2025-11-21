@@ -1,23 +1,17 @@
-spring:
-  application:
-    name: trajet-formateur
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+application:
+  name: trajet-formateur
 
----
 spring:
-  config:
-    activate:
-      on-profile: dev
   datasource:
     url: jdbc:postgresql://localhost:5432/pfdb
-    username: pfuser         # ou 'postgres' selon ton install locale
-    password: pfpass         # adapte si besoin
+    username: postgres       # ce que tu utilises dans DBeaver
+    password: root           # ton mot de passe réel
+    driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none         # on NE TOUCHE PAS au schéma
+    show-sql: true
     properties:
       hibernate.format_sql: true
       hibernate.jdbc.time_zone: UTC
@@ -30,3 +24,11 @@ management:
     web:
       exposure:
         include: health,info
+
+security:
+  jwt:
+    # Clé signée HS256 – pour le dev tu peux la laisser en dur,
+    # mais en prod -> variable d'environnement.
+    secret: "change-me-super-secret-key-change-me-1234567890"
+    # durée de vie du token (en ms) : ici 1h
+    expiration-ms: 3600000
