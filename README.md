@@ -3,6 +3,11 @@
 > Fullstack business application built with React (Vite) & Spring Boot.  
 > Designed to manage trainer mobility, optimize travel feasibility and prepare GPS-based decision support.
 
+
+<p align="center">
+  <img src="assets/trajetPreview.jpg" width="950"/>
+</p>
+
 ---
 
 ## 🧠 Business Context
