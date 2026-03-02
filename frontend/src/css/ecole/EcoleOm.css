@@ -1,0 +1,29 @@
+/* src/css/EcoleOm.css */
+
+.ecole-om-page {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #dde4f0, #f4f7fb);
+  display: flex;
+  flex-direction: column;
+}
+
+.ecole-om-wrapper {
+  flex: 1;
+  max-width: 1480px;
+  width: 100%;
+  margin: 110px auto 0; /* comme admin-ecole-wrapper */
+  padding: 0 24px 24px;
+  box-sizing: border-box;
+}
+
+.ecole-om-grid {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 24px;
+}
+/* Cellule commentaire des OM : 80px max, scroll vertical si trop long */
+.om-comment-cell {
+  max-height: 80px;
+  overflow-y: auto;
+  padding-right: 4px;
+}

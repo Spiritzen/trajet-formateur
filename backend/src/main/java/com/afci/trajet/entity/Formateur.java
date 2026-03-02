@@ -7,6 +7,10 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
+// ✅ Imports Hibernate pour typer correctement les colonnes JSONB
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 /**
  * Entité représentant un formateur.
  *
@@ -51,14 +55,24 @@ public class Formateur {
 
     /**
      * Préférences de mobilité (JSONB côté PostgreSQL).
-     * Exemple : { "moyen_principal": "VOITURE", "alternatives": ["TRAIN"] }
+     *
+     * ✅ @JdbcTypeCode(SqlTypes.JSON) indique à Hibernate que la colonne
+     *    "mobilite_pref_json" est de type JSON (jsonb en base),
+     *    même si on manipule une String côté Java.
      */
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "mobilite_pref_json", columnDefinition = "jsonb")
     private String mobilitePrefJson;
 
     /**
      * Créneaux de disponibilités (JSONB côté PostgreSQL).
+     *
+     * ✅ Même principe : String côté Java, jsonb côté PostgreSQL.
+     *    Ça corrige l'erreur :
+     *    "la colonne « disponibilite_json » est de type jsonb
+     *     mais l'expression est de type character varying"
      */
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "disponibilite_json", columnDefinition = "jsonb")
     private String disponibiliteJson;
 

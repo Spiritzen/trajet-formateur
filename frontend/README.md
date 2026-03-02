@@ -1,16 +1,169 @@
-# React + Vite
+# 🚗 Trajet-Formateur
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Fullstack business application built with React (Vite) & Spring Boot.  
+> Designed to manage trainer mobility, optimize travel feasibility and prepare GPS-based decision support.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧠 Business Context
 
-## React Compiler
+Trajet-Formateur extends the planning logic by introducing a critical real-world constraint: **logistics and mobility**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+In professional training organizations:
 
-## Expanding the ESLint configuration
+- Trainers travel between multiple schools
+- Travel time directly impacts session feasibility
+- Excessive distance may invalidate an assignment
+- Mobility generates financial and operational constraints
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project focuses on transforming **geographical data into business decisions**.
+
+---
+
+## 🎯 Project Objectives
+
+- Centralize trainer mobility data
+- Calculate travel distance & duration
+- Validate assignment feasibility based on time constraints
+- Prepare integration of external GPS APIs
+- Secure all operations via JWT authentication
+
+---
+
+## 🏗 Business Logic Example
+
+When assigning a trainer to a session:
+
+1. The system calculates estimated travel duration
+2. It verifies compatibility with session start time
+3. If travel exceeds allowed margin → assignment is rejected
+
+Core validation logic:
+if (travelDuration > allowedMarginBeforeSession) {
+rejectAssignment();
+}
+
+
+This ensures decision-making happens **server-side**, not only in the UI.
+
+---
+
+## 🗂 Data Model
+
+Main entities:
+
+- Formateur
+- École
+- Session
+- Trajet
+
+Each `Trajet` stores:
+- Distance
+- Estimated duration
+- Status
+- Compatibility validation
+
+The design supports future extension toward full GPS integration.
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React (Vite)
+- Axios
+- Component-based architecture
+- Structured UI for logistics visualization
+
+### Backend
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- JPA / Repository pattern
+- MariaDB
+- DTO architecture
+
+---
+
+## 🔐 Security
+
+- Role-based access control
+- JWT authentication
+- Protected API routes
+- Server-side validation
+- Clear business error handling
+
+---
+
+## 🌍 GPS Integration Preparation
+
+This project introduces preparation for external API consumption:
+
+- Study of OpenRouteService
+- Study of Mapbox
+- Study of Google Maps API
+- Secure API key handling
+- External dependency management
+- Error resilience strategy
+
+The architecture is designed to support a future cartographic interface.
+
+---
+
+## 🏗 Architecture
+
+Backend structure:
+
+Controller → Service → Repository → Database
+
+Principles applied:
+
+- Separation of concerns
+- Business logic encapsulation
+- DTO isolation layer
+- Error handling discipline
+- Evolutive design
+
+---
+
+## 📈 Skills Demonstrated
+
+- Business analysis in logistics context
+- Geo-data handling preparation
+- REST API design
+- Secure authentication system
+- Server-side decision validation
+- Extensible architecture thinking
+
+---
+
+## ▶️ Demo
+
+
+🌍 Portfolio page:  
+https://spiritzen.github.io/portfolio/
+
+---
+
+## ⚙️ Run Locally
+
+### Backend
+
+```bash
+cd backend
+mvn spring-boot:run
+
+cd frontend
+npm install
+npm run dev
+
+👤 Author
+Sébastien Cantrelle
+Fullstack Developer – Java / Spring Boot / React
+Amiens (France) – Open to remote opportunities
+
+🔗 LinkedIn
+https://www.linkedin.com/in/sebastien-cantrelle-26b695106/
+
+🌍 Portfolio
+https://spiritzen.github.io/portfolio/

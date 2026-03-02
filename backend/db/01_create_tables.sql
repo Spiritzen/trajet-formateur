@@ -177,7 +177,7 @@ CREATE TABLE IF NOT EXISTS responsable_accessibilite (
 CREATE TABLE IF NOT EXISTS ordre_mission (
     id_ordre_mission   INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     code_ordre         VARCHAR(30)      NOT NULL,
-    id_formateur       INTEGER         NOT NULL,
+    id_formateur       INTEGER        
     id_ecole           INTEGER         NOT NULL,
     id_user_createur   INTEGER         NOT NULL,
     id_user_validateur INTEGER,

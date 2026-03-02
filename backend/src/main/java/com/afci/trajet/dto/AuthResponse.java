@@ -7,7 +7,7 @@ import java.util.List;
  * contient le JWT + quelques infos utiles sur l'utilisateur.
  */
 public class AuthResponse {
-
+	
     private String accessToken;
     private String tokenType = "Bearer";   // standard
     private Integer userId;

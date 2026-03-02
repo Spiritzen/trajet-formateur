@@ -31,7 +31,7 @@ public class OrdreMission {
     /**
      * FK vers formateur.id_formateur
      */
-    @Column(name = "id_formateur", nullable = false)
+    @Column(name = "id_formateur", nullable = true)
     private Integer idFormateur;
 
     /**
