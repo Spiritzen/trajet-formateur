@@ -1,0 +1,175 @@
+/* =========================================
+   MODALE EDITION ECOLE (ADMIN)
+   ========================================= */
+
+/* Fond assombri et légèrement flouté */
+.ecole-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 9, 20, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Carte centrale de la modale */
+.ecole-modal-card {
+  position: relative;
+  max-width: 960px;
+  width: 95%;
+  max-height: 88vh;
+  border-radius: 36px;
+  background: #e7edf8;
+  padding: 24px 32px 26px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+.ecole-modal-header {
+  margin-bottom: 10px;
+}
+
+.ecole-modal-title {
+  font-size: 1.5rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 0;
+  color: #1c2435;
+}
+
+.ecole-modal-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #555c6d;
+}
+
+/* Ligne séparatrice sous le header (optionnelle) */
+.ecole-modal-card::before {
+  content: "";
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  top: 72px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* CONTENU SCROLLABLE */
+.ecole-modal-body {
+  margin-top: 24px;
+  padding-right: 8px;
+  padding-bottom: 32px; /* 👈 espace en plus pour ne pas coller les boutons */
+  overflow-y: auto;
+}
+
+/* Titres de section */
+.ecole-modal-section {
+  margin-bottom: 22px;
+}
+
+.ecole-modal-section-title {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #293348;
+  margin: 0 0 10px;
+}
+
+/* Grille 2 colonnes (passe en 1 colonne sur mobile) */
+.ecole-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 18px;
+}
+
+.ecole-modal-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecole-modal-field-full {
+  grid-column: 1 / -1;
+}
+
+/* Labels champs */
+.ecole-modal-field .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5b6478;
+  margin-bottom: 3px;
+}
+
+/* Inputs / textarea */
+.ecole-modal-input,
+.ecole-modal-textarea {
+  width: 100%;
+  border-radius: 999px;
+  border: none;
+  padding: 6px 12px;
+  background: #e7edf8;
+  box-shadow: inset 3px 3px 6px #c2c9d8, inset -3px -3px 6px #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  color: #1f2838;
+}
+
+.ecole-modal-textarea {
+  min-height: 54px;
+  border-radius: 18px;
+  resize: vertical;
+}
+
+/* FOOTER BOUTONS */
+.ecole-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px; /* 👈 espace entre le dernier champ et les boutons */
+}
+
+/* Boutons (tu réutilises déjà .neumo-btn du global)
+   On peut juste resserrer un peu ici si besoin. */
+.ecole-modal-footer .neumo-btn {
+  min-width: 130px;
+}
+.ecole-modal-select {
+  width: 100%;
+  border-radius: 999px;
+  border: none;
+  padding: 6px 12px;
+  background: #e7edf8;
+  box-shadow: inset 3px 3px 6px #c2c9d8, inset -3px -3px 6px #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  color: #1f2838;
+  appearance: none; /* pour enlever le style natif agressif */
+}
+
+/* Responsive */
+@media (max-width: 840px) {
+  .ecole-modal-card {
+    padding: 18px 18px 20px;
+    border-radius: 28px;
+  }
+
+  .ecole-modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ecole-modal-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .ecole-modal-footer .neumo-btn {
+    width: 100%;
+  }
+}

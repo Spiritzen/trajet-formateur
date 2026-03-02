@@ -1,0 +1,50 @@
+/* src/index.css */
+
+/* Reset de base + police globale */
+:root {
+  /* ✅ Police globale pour TOUT le site */
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Box-sizing cohérent partout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Body occupe tout l’écran, plus de flex-centering global */
+body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(145deg, #dde4f0, #f4f7fb);
+  color: #22252e; /* même couleur que dans .admin-ecole-page */
+}
+/* #root doit juste prendre tout l’espace, sans max-width */
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Liens */
+a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Boutons de base (tu peux adapter) */
+button {
+  font-family: inherit;
+}

@@ -1,0 +1,9 @@
+/* src/App.css */
+
+/* On ne touche PAS à #root ici, il est géré dans index.css */
+
+/* Petites utilitaires si tu veux */
+.full-page {
+  min-height: 100vh;
+  width: 100%;
+}

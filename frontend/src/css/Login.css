@@ -1,0 +1,263 @@
+/* --------- Page globale --------- */
+
+.login-page {
+    position: relative;              /* <--- ajouté */
+  min-height: 100vh;
+  width: 100vw;          /* prend toute la largeur de la fenêtre */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  /* Fond blanc / bleu crémeux façon neumorphisme */
+  background: #dde5f4;
+  background: radial-gradient(circle at top left, #eef3ff 0, #dde5f4 35%, #cfd7ec 100%);
+
+  color: #1f2933;
+
+  box-sizing: border-box; /* pour que le padding n’ajoute pas de scroll horizontal */
+}
+
+/* --------- Carte centrale --------- */
+
+.login-card {
+  width: 360px;
+  max-width: 100%;
+  padding: 32px 32px 28px;
+  border-radius: 28px;
+  background: #e5edff;
+
+  /* Ombre principale (bloc qui flotte) */
+  box-shadow:
+    18px 18px 30px rgba(163, 177, 198, 0.7),
+    -12px -12px 30px rgba(255, 255, 255, 0.9);
+}
+
+/* --------- Titres --------- */
+
+.login-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.login-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1c2a3a;
+}
+
+.login-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5b6b85;
+}
+
+.login-intro {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #65728a;
+}
+
+/* --------- Message d’erreur --------- */
+
+.login-error {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #ffe5e5;
+  color: #b00020;
+  font-size: 0.86rem;
+  border: 1px solid rgba(176, 0, 32, 0.18);
+}
+
+/* --------- Formulaire --------- */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: #4b5973;
+  gap: 6px;
+}
+
+/* Inputs avec effet "pills" neumorphiques */
+
+.login-input {
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: #e5edff;
+  color: #1f2933;
+  box-shadow:
+    inset 2px 2px 4px rgba(163, 177, 198, 0.7),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.9);
+  transition:
+    box-shadow 0.18s ease,
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.login-input::placeholder {
+  color: #9aa5c4;
+}
+
+.login-input:focus {
+  background: #dde6ff;
+  box-shadow:
+    inset 1px 1px 2px rgba(163, 177, 198, 0.6),
+    inset -2px -2px 4px rgba(255, 255, 255, 1),
+    0 0 0 2px rgba(88, 106, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* --------- Ligne "se souvenir / mot de passe oublié" --------- */
+
+.login-extra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.remember-me {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: #4b5973;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+
+  /* On enlève le style natif du navigateur */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Style de la case */
+  background-color: #f5f7ff;      /* intérieur clair */
+  border: 1px solid #111827;      /* bord noir/gris foncé */
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+
+  box-shadow:
+    1px 1px 2px rgba(163, 177, 198, 0.7),
+    -1px -1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* Le « ✓ » quand elle est cochée */
+.remember-me input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  width: 7px;
+  height: 11px;
+  border: 2px solid #6366f1;   /* violet / bleu */
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+/* Boutons "liens" (texte violet cliquable) */
+
+.login-link-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 0.82rem;
+  color: #7b61ff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.16s ease, transform 0.16s ease;
+}
+
+.login-link-button:hover {
+  color: #5b45e5;
+  transform: translateY(-0.5px);
+}
+
+/* --------- Bouton principal --------- */
+
+.login-submit {
+  margin-top: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  color: #1f2933;
+  background: #e5edff;
+
+  /* Neumorphisme "bouton qui ressort" */
+  box-shadow:
+    4px 4px 10px rgba(163, 177, 198, 0.8),
+    -3px -3px 8px rgba(255, 255, 255, 1);
+  transition:
+    box-shadow 0.18s ease,
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.login-submit:hover:not(:disabled) {
+  background: #dde6ff;
+  box-shadow:
+    2px 2px 6px rgba(163, 177, 198, 0.9),
+    -2px -2px 6px rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+}
+
+.login-submit:active:not(:disabled) {
+  background: #d6e0ff;
+  box-shadow:
+    inset 2px 2px 5px rgba(163, 177, 198, 0.9),
+    inset -2px -2px 5px rgba(255, 255, 255, 1);
+  transform: translateY(1px);
+}
+
+.login-submit:disabled {
+  cursor: progress;
+  opacity: 0.75;
+}
+
+/* --------- Texte de bas de carte --------- */
+
+.login-footer-text {
+  margin-top: 18px;
+  font-size: 0.82rem;
+  text-align: center;
+  color: #5b6b85;
+}
+
+/* --------- Responsive --------- */
+
+@media (max-width: 480px) {
+  .login-card {
+    width: 100%;
+    padding: 24px 20px 22px;
+    border-radius: 22px;
+  }
+
+  .login-title {
+    font-size: 1.25rem;
+  }
+}

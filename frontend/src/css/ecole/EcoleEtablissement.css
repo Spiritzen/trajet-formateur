@@ -1,0 +1,207 @@
+/* Layout global page ECOLE */
+.ecole-page {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #e4ebf7, #f7f9ff);
+  display: flex;
+  flex-direction: column;
+}
+
+.ecole-main {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px 26px 26px;
+}
+
+/* Colonne droite */
+.ecole-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ecole-status {
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background: #e8edf7;
+  box-shadow: inset 2px 2px 4px #c6ccd8, inset -2px -2px 4px #ffffff;
+}
+
+.ecole-status-error {
+  color: #b3261e;
+}
+
+/* Disposition 1 grosse carte + 2 cartes à droite */
+.ecole-right-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+  grid-template-rows: minmax(260px, auto) minmax(220px, auto);
+  gap: 18px;
+}
+
+/* Carte générique */
+.ecole-card {
+  background: #e8edf7;
+  border-radius: 30px;
+  padding: 18px 20px;
+  box-shadow: 8px 8px 18px #c6ccd8, -8px -8px 18px #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Carte principale : s'étend sur 2 lignes à gauche */
+.ecole-card-main {
+  grid-row: 1 / span 2;
+}
+
+/* Carte latérale (responsables) */
+.ecole-card-side {
+  grid-column: 2 / 3;
+}
+
+/* Header de carte */
+.ecole-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ecole-card-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ecole-card-title {
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ecole-card-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Boutons icônes (crayon + planète) */
+.ecole-card-edit-btn,
+.ecole-card-map-btn {
+  border: none;
+  border-radius: 999px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #f9fbff, #d0d8ea);
+  box-shadow: 3px 3px 6px #c2cadc, -3px -3px 6px #ffffff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition:
+    transform 0.12s ease-out,
+    box-shadow 0.12s ease-out,
+    background 0.12s ease-out;
+}
+
+/* Variation couleur pour le bouton Google Maps (légèrement plus vert) */
+.ecole-card-map-btn {
+  background: linear-gradient(145deg, #f7fff9, #cfe8d6);
+}
+
+/* Hover : petit zoom + glow vert pastel */
+.ecole-card-edit-btn:hover,
+.ecole-card-map-btn:hover {
+  transform: translateY(1px) scale(1.03);
+  box-shadow: 2px 2px 4px #b8c0d2, -2px -2px 4px #ffffff;
+  background: linear-gradient(145deg, #e9fff1, #cfe8d6);
+}
+
+/* Active : bouton un peu plus enfoncé */
+.ecole-card-edit-btn:active,
+.ecole-card-map-btn:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: inset 2px 2px 4px #b0c0c8, inset -2px -2px 4px #ffffff;
+}
+
+/* Corps de carte */
+.ecole-card-body {
+  flex: 1;
+  border-radius: 24px;
+  padding: 16px 18px;
+  background: #dbe4f7;
+  box-shadow: inset 4px 4px 8px #bec7d9, inset -4px -4px 8px #f7fbff;
+}
+
+/* Grille d'infos principales */
+.ecole-main-infos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ecole-main-info-row {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.ecole-main-info-row-full {
+  margin-top: 8px;
+}
+
+.ecole-main-info-row .label,
+.ecole-side-list .label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6a7181;
+  margin-bottom: 2px;
+}
+
+.ecole-main-info-row .value,
+.ecole-side-list .value {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #e8edf7;
+  box-shadow: inset 3px 3px 6px #c6ccd8, inset -3px -3px 6px #ffffff;
+}
+
+/* Listes des cartes latérales */
+.ecole-side-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ecole-side-empty {
+  font-size: 0.88rem;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .ecole-main {
+    grid-template-columns: 1fr;
+  }
+
+  .ecole-right-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .ecole-card-main {
+    grid-row: auto;
+  }
+
+  .ecole-card-side {
+    grid-column: auto;
+  }
+}

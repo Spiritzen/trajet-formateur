@@ -1,0 +1,141 @@
+/* Fond sombre + flou derrière la modale */
+.ecole-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(5, 9, 20, 0.75);
+  backdrop-filter: blur(3px);
+}
+
+/* Carte centrale dans le style neumorphique global */
+.ecole-modal-card {
+  max-width: 760px;
+  width: 100%;
+  max-height: calc(100vh - 140px);
+
+  background: #e8edf7;
+  border-radius: 32px;
+  padding: 22px 26px 18px;
+
+
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Gestion du scroll interne (vertical) */
+.ecole-modal-body {
+  margin-top: 12px;
+  margin-bottom: 18px;
+  padding-right: 6px;
+  overflow-y: auto;
+}
+
+/* Optionnel : scroll discret */
+.ecole-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.ecole-modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ecole-modal-body::-webkit-scrollbar-thumb {
+  background: rgba(152, 163, 189, 0.7);
+  border-radius: 999px;
+}
+
+/* HEADER */
+.ecole-modal-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 6px;
+}
+
+.ecole-modal-title {
+  font-size: 1.3rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.ecole-modal-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #4a5264;
+}
+
+/* SECTIONS */
+.ecole-modal-section {
+  margin-top: 16px;
+}
+
+.ecole-modal-section-title {
+  font-size: 0.98rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+/* GRID D'INFOS */
+.ecole-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+}
+
+.ecole-modal-field {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+}
+
+.ecole-modal-field-full {
+  grid-column: 1 / -1;
+}
+
+.ecole-modal-field .label {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6a7181;
+  margin-bottom: 2px;
+}
+
+.ecole-modal-field .value {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: #e8edf7;
+  box-shadow:
+    inset 3px 3px 6px #c6ccd8,
+    inset -3px -3px 6px #ffffff;
+  color: #22252e;
+  min-height: 30px;
+}
+
+/* FOOTER BOUTONS */
+.ecole-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Responsive : modale plus compacte sur petit écran */
+@media (max-width: 780px) {
+  .ecole-modal-card {
+    margin: 0 10px;
+    padding: 18px 16px 14px;
+    max-height: calc(100vh - 70px);
+  }
+
+  .ecole-modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ecole-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

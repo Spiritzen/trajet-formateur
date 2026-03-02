@@ -1,0 +1,62 @@
+/* src/css/modal/EcoleDeleteModal.css */
+
+/* Carte de suppression : on se base sur .ecole-modal-card existant
+   et on ajoute un léger accent rouge + resserrage du contenu. */
+.ecole-delete-card {
+  border: 1px solid rgba(185, 28, 28, 0.2); /* rouge doux */
+}
+
+/* Titre "Supprimer cette école ?" plus rouge / visible */
+.ecole-delete-title {
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #b91c1c; /* rouge foncé */
+}
+
+/* Corps de la modale de suppression un peu plus compact */
+.ecole-delete-body {
+  margin-top: 12px;
+}
+
+/* Texte d'avertissement principal */
+.ecole-delete-warning-text {
+  font-size: 0.92rem;
+  margin: 4px 0 10px;
+  color: #1f2933;
+}
+
+/* Liste des impacts de la suppression */
+.ecole-delete-list {
+  margin: 0 0 10px 18px;
+  padding: 0;
+  font-size: 0.86rem;
+  color: #333846;
+}
+
+.ecole-delete-list li {
+  margin-bottom: 4px;
+}
+
+/* Petit sous-texte expliquant le blocage potentiel (409) */
+.ecole-delete-subwarning {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+/* Message d'erreur (ex: 409) */
+.ecole-delete-error {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #fee2e2;
+  color: #7f1d1d;
+  font-size: 0.82rem;
+}
+
+/* Footer : on espace un peu les boutons comme dans les autres modales */
+.ecole-delete-footer {
+  margin-top: 10px;
+}

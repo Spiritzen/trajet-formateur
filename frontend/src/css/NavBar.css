@@ -1,0 +1,211 @@
+/* Conteneur global de la navbar : flottant au-dessus de la page login */
+.tf-navbar {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  pointer-events: none;      /* le fond ne capte pas les clics */
+  z-index: 20;
+}
+
+/* Barre arrondie au centre */
+.tf-navbar-inner {
+  pointer-events: auto;      /* les éléments internes, eux, captent les clics */
+  margin: 0 auto;
+  max-width: 1480px;
+  width: calc(100% - 64px);
+
+  padding: 4px 28px;
+  border-radius: 999px;
+  background: #e5edff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  /* Ombres type neumorphisme (comme la carte) */
+  box-shadow:
+    18px 18px 30px rgba(163, 177, 198, 0.7),
+    -12px -12px 30px rgba(255, 255, 255, 0.9);
+}
+
+/* --------- Logo gauche --------- */
+
+.tf-logo-btn {
+  border: none;
+  background: #e5edff;
+  border-radius: 999px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+
+  box-shadow:
+    5px 5px 12px rgba(163, 177, 198, 0.8),
+    -5px -5px 12px rgba(255, 255, 255, 1);
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.tf-logo-btn:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow:
+    3px 3px 8px rgba(163, 177, 198, 0.9),
+    -3px -3px 8px rgba(255, 255, 255, 0.95);
+}
+
+.tf-logo-img {
+  display: block;
+  width: 42px;
+  height: 42px;
+}
+
+/* --------- Menu central --------- */
+
+.tf-nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex: 1;
+}
+
+.tf-nav-link {
+  position: relative;
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333b4f;
+  cursor: default; /* inactif fonctionnellement pour l’instant */
+  padding: 6px 0;
+
+  transition: transform 0.16s ease, color 0.16s ease;
+}
+
+/* Soulignement + léger zoom au survol */
+.tf-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7b61ff, #42c4ff);
+  transition: width 0.18s ease;
+}
+
+.tf-nav-link:hover {
+  transform: translateY(-1px) scale(1.02);
+  color: #222a3f;
+}
+
+.tf-nav-link:hover::after {
+  width: 70%;
+}
+
+/* --------- Bouton connexion à droite --------- */
+
+.tf-login-btn {
+  border: none;
+  background: #e5edff;
+  border-radius: 999px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+
+  box-shadow:
+    5px 5px 12px rgba(163, 177, 198, 0.8),
+    -5px -5px 12px rgba(255, 255, 255, 1);
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.tf-login-btn:hover {
+  transform: translateY(-1px) scale(1.04);
+  box-shadow:
+    3px 3px 8px rgba(163, 177, 198, 0.9),
+    -3px -3px 8px rgba(255, 255, 255, 0.95);
+}
+
+.tf-login-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+/* Bloc titre centré pour la navbar admin */
+.tf-nav-title-only {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tf-nav-title-main {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1c2a3a;
+}
+.tf-nav-admin-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;          /* petit espace entre ADMIN et l’icône */
+}
+
+.tf-nav-title-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fef2f2;
+  color: #b91c1c;
+  box-shadow:
+    3px 3px 6px rgba(163, 177, 198, 0.6),
+    -2px -2px 6px rgba(255, 255, 255, 0.9);
+  /* IMPORTANT : pas de margin-left, pas collé au titre */
+}
+/* Badge vert pour le rôle ECOLE */
+.tf-nav-title-badge-ecole {
+  background: #b6f5ba; /* vert doux */
+  color: #264b29;
+}
+/* Badge bleu pour le rôle FORMATEUR */
+.tf-nav-title-badge-formateur {
+  background: #bfdbfe; /* bleu clair */
+  color: #1d4ed8;      /* bleu plus soutenu */
+}
+
+/* --------- Responsive --------- */
+
+@media (max-width: 768px) {
+  .tf-navbar-inner {
+    padding: 8px 18px;
+    gap: 16px;
+  }
+
+  .tf-nav-menu {
+    gap: 16px;
+    font-size: 0.9rem;
+  }
+
+  .tf-nav-link {
+    font-size: 0.85rem;
+  }
+
+  .tf-logo-img,
+  .tf-login-icon {
+    width: 34px;
+    height: 34px;
+  }
+}
