@@ -3,7 +3,6 @@
 > Fullstack business application built with React (Vite) & Spring Boot.  
 > Designed to manage trainer mobility, optimize travel feasibility and prepare GPS-based decision support.
 
-
 <p align="center">
   <img src="assets/trajetPreview.jpg" width="950"/>
 </p>
@@ -44,10 +43,12 @@ When assigning a trainer to a session:
 3. If travel exceeds allowed margin → assignment is rejected
 
 Core validation logic:
-if (travelDuration > allowedMarginBeforeSession) {
-rejectAssignment();
-}
 
+```java
+if (travelDuration > allowedMarginBeforeSession) {
+    rejectAssignment();
+}
+```
 
 This ensures decision-making happens **server-side**, not only in the UI.
 
@@ -57,12 +58,13 @@ This ensures decision-making happens **server-side**, not only in the UI.
 
 Main entities:
 
-- Formateur
-- École
-- Session
-- Trajet
+- `Formateur`
+- `École`
+- `Session`
+- `Trajet`
 
 Each `Trajet` stores:
+
 - Distance
 - Estimated duration
 - Status
@@ -75,18 +77,25 @@ The design supports future extension toward full GPS integration.
 ## 🛠 Tech Stack
 
 ### Frontend
+
 - React (Vite)
 - Axios
 - Component-based architecture
 - Structured UI for logistics visualization
 
 ### Backend
+
 - Spring Boot
 - Spring Security
 - JWT Authentication
 - JPA / Repository pattern
-- MariaDB
+- **PostgreSQL**
 - DTO architecture
+
+### DevOps
+
+- Docker / Docker Compose
+- DBeaver (database management)
 
 ---
 
@@ -117,9 +126,9 @@ The architecture is designed to support a future cartographic interface.
 
 ## 🏗 Architecture
 
-Backend structure:
-
+```
 Controller → Service → Repository → Database
+```
 
 Principles applied:
 
@@ -142,36 +151,51 @@ Principles applied:
 
 ---
 
-## ▶️ Demo
-
-🎥 Video presentation:  
-(ajouter ici le lien si tu veux)
-
-🌍 Portfolio page:  
-https://spiritzen.github.io/portfolio/
-
----
-
 ## ⚙️ Run Locally
+
+### Prerequisites
+
+- Java 17+
+- Node.js 18+
+- PostgreSQL (running locally or via Docker)
+- Maven
 
 ### Backend
 
 ```bash
 cd backend
 mvn spring-boot:run
+```
 
+### Frontend
+
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-### 👤 Author
+### With Docker
 
-Sébastien Cantrelle
-Fullstack Developer – Java / Spring Boot / React
+```bash
+docker-compose up --build
+```
+
+---
+
+## ▶️ Demo
+
+🎥 Video presentation: *(coming soon)*
+
+🌍 Portfolio: [spiritzen.github.io/portfolio](https://spiritzen.github.io/portfolio/)
+
+---
+
+## 👤 Author
+
+**Sébastien Cantrelle**  
+Fullstack Developer – Java / Spring Boot / React  
 Amiens (France) – Open to remote opportunities
 
-🔗 LinkedIn
-https://www.linkedin.com/in/sebastien-cantrelle-26b695106/
-
-🌍 Portfolio
-https://spiritzen.github.io/portfolio/
+🔗 [LinkedIn](https://www.linkedin.com/in/sebastien-cantrelle-26b695106/)  
+🌍 [Portfolio](https://spiritzen.github.io/portfolio/)
